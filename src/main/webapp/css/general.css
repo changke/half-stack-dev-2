@@ -1,0 +1,14 @@
+body {
+  margin: 0;
+  padding: 0;
+}
+
+code,
+code[class*='language-'],
+pre[class*='language-'] {
+  font-family: 'Roboto Mono', 'Noto Sans Mono', monospace;
+}
+
+pre[class*='language-'] {
+  margin: var(--base-font-size) 0;
+}

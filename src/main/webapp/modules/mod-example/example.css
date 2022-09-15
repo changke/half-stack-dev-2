@@ -1,0 +1,17 @@
+@import '../../css/vars.css';
+
+.example {
+  width: 12rem;
+  height: 12rem;
+  background: black;
+  cursor: pointer;
+}
+.rgb-sq__r {
+  background: var(--color-named-red);
+}
+.rgb-sq__g {
+  background: var(--color-named-green);
+}
+.rgb-sq__b {
+  background: blue;
+}

@@ -1,0 +1,72 @@
+{% extends "templates/general.njk" %}
+
+{% block title %}Stundenplan{% endblock %}
+
+{% block content %}
+  <article>
+    <h1>Stundenplan</h1>
+    <p>Klasse 1b, Schuljahr 2022/23</p>
+    <table>
+      <thead>
+        <tr>
+          <th>Zeit</th>
+          <th>Montag</th>
+          <th>Dienstag</th>
+          <th>Mittwoch</th>
+          <th>Donnerstag</th>
+          <th>Freitag</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>08:00&ndash;08:45</td>
+          <td>GU</td>
+          <td>GU</td>
+          <td>GU</td>
+          <td>Eth</td>
+          <td>GU</td>
+        </tr>
+        <tr>
+          <td>08:45&ndash;09:30</td>
+          <td>Sport</td>
+          <td>GU</td>
+          <td>GU</td>
+          <td>Eth</td>
+          <td>GU</td>
+        </tr>
+        <tr>
+          <td>09:50&ndash;10:35</td>
+          <td>GU</td>
+          <td>GU</td>
+          <td>GU</td>
+          <td>WuG</td>
+          <td>GU</td>
+        </tr>
+        <tr>
+          <td>10:35&ndash;11:20</td>
+          <td>GU</td>
+          <td>Kunst</td>
+          <td>GU</td>
+          <td>GU</td>
+          <td>Sport</td>
+        </tr>
+        <tr>
+          <td>11:30&ndash;12:15</td>
+          <td>FF</td>
+          <td></td>
+          <td>FF</td>
+          <td>GU</td>
+          <td></td>
+        </tr>
+      </tbody>
+    </table>
+    <dl>
+      <dt>GU</dt>
+      <dd>Grundlegender Unterricht: Deutsch, Mathe, HSU, Musik</dd>
+      <dt>WuG</dt>
+      <dd>Werken und Gestalten</dd>
+      <dt>FF</dt>
+      <dd>F&ouml;rderstunden f&uuml;r die ganze Klasse</dd>
+    </dl>
+  </article>
+{% endblock %}

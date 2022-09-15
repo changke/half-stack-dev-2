@@ -1,0 +1,12 @@
+:root {
+  /* Colors */
+  --color-demo-bg: #e5e5e5;
+  --color-demo-primary: #4682b4;
+  --color-named-white: #fff;
+  --color-named-green: #5c8427;
+  --color-named-red: #c10;
+  --color-named-lightgray: #f8f8f8;
+
+  /* Fonts */
+  --font-family-sans: sans-serif;
+}

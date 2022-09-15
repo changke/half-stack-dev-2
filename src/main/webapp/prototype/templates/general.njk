@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  {% include "../partials/html-head.njk" %}
+  <title>{% block title %}{% endblock %}</title>
+  <link rel="icon" href="/assets/favicon.svg" />
+  <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono&family=Roboto:wght@400;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://border0-css.netlify.app/b0.min.css" />
+  <link rel="stylesheet" href="/assets/_sn_/css/index.css" />
+  <script>
+    window.ui = window.ui || {};
+    ui.pageInfo = {brand: 'one', lang: 'en'};
+  </script>
+</head>
+<body>
+<main id="main">
+  {% block content %}{% endblock %}
+</main>
+<script type="module" src="/assets/_sn_/js/main.js" crossorigin></script>
+</body>
+</html>

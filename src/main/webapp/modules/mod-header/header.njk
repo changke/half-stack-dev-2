@@ -1,0 +1,9 @@
+{% from "mod-nav/nav.njk" import nav %}
+
+{% macro header(currentNavItem) %}
+<header data-mod-name="header" data-mod-bypass>
+  {% include "mod-logo/logo.njk" %}
+  <h3 class="header__title">Half-Stack Developer</h3>
+  {{ nav(currentNavItem) }}
+</header>
+{% endmacro %}

@@ -1,0 +1,14 @@
+@import 'general.css';
+@import '../modules/mod-header/header.css';
+@import '../modules/mod-archive/archive.css';
+@import '../modules/mod-footer/footer.css';
+
+main {
+  max-width: 94rem;
+  margin: 0 auto;
+  padding: 1rem;
+}
+
+article {
+  padding: 4rem 0;
+}

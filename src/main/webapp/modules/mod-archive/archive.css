@@ -1,0 +1,18 @@
+[data-mod-name='archive'] {
+  padding: 4rem 0;
+}
+.archive__postlist,
+.archive__post {
+  margin: 0;
+  padding: 0;
+}
+.archive__post {
+  list-style: none;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  line-height: 2;
+}
+.archive__time {
+  color: darkgray;
+}

@@ -1,0 +1,12 @@
+{% extends "templates/general.njk" %}
+
+{% from "mod-header/header.njk" import header %}
+{% from "mod-footer/footer.njk" import footer %}
+
+{% block title %}Half-Stack Developer{% endblock %}
+
+{% block content %}
+  {{ header('Home') }}
+  {% include "mod-archive/archive.njk" %}
+  {{ footer('Home') }}
+{% endblock %}

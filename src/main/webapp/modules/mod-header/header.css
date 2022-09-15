@@ -1,0 +1,15 @@
+[data-mod-name='header'] {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+  height: 6rem;
+}
+.header__title {
+  flex: 1;
+  margin: 0;
+  font-size: var(--base-font-size);
+  line-height: 1;
+}
+[data-mod-name='header'] ui-logo {
+  width: 6rem; /* placeholder for logo */
+}
