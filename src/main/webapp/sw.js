@@ -10,7 +10,7 @@ self.addEventListener('activate', () => {
   // our service worker's control, and force them to reload.
   // This can "unbreak" any open windows/tabs as soon as the new
   // service worker activates, rather than users having to manually reload.
-  self.ServiceWorkerRegistration.unregister()
+  self.registration.unregister()
     .then(() => self.clients.matchAll({type: 'window'}))
     .then(windowClients => {
       windowClients.forEach((windowClient) => {
