@@ -1,15 +1,26 @@
 import {globby} from 'globby';
 import {readFile} from 'node:fs/promises';
 import {marked} from 'marked';
+import {markedHighlight} from 'marked-highlight';
+import {markedXhtml} from 'marked-xhtml';
+import hljs from 'highlight.js';
 import njk from 'nunjucks';
 
 import * as vars from '../vars.mjs';
 import {createAndWriteToFile, getTargetPathString} from '../utils.mjs';
 
-marked.setOptions({
+marked.use({
   headerIds: false,
-  xhtml: true
-});
+  mangle: false
+},
+markedXhtml(),
+markedHighlight({
+  langPrefix: 'hljs language-',
+  highlight: (code, lang) => {
+    const language = hljs.getLanguage(lang) ? lang : 'plaintext';
+    return hljs.highlight(code, {language}).value;
+  }
+}));
 
 const {Environment, FileSystemLoader} = njk;
 
@@ -18,12 +29,12 @@ const njkWrapper = {
   bottom: '{% endblock %}'
 };
 
-const getPageTitle = htmlContent => {
+const getPageTitle = content => {
   let t = 'Untitled';
-  if (htmlContent.length > 1) {
-    const firstLine = htmlContent.split('\n')[0];
+  if (content.length > 1) {
+    const firstLine = content.split('\n')[0];
     if (firstLine) {
-      t = firstLine.replace('<h1>', '').replace('</h1>', '');
+      t = firstLine.replace('# ', ''); // first line MUST be a level 1 heading!
     }
   }
   return t;
@@ -40,7 +51,7 @@ const markdown = () => {
     docs.forEach(async (doc) => {
       const mdContent = await readFile(doc, {encoding: 'utf8'});
       const html = marked.parse(mdContent);
-      const pageTitle = getPageTitle(html);
+      const pageTitle = getPageTitle(mdContent);
       const njkContent = njkWrapper.top + html + njkWrapper.bottom;
       const res = njkEnv.renderString(njkContent, {
         'pageTitle': pageTitle
