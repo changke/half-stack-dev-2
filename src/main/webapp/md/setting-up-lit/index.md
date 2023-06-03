@@ -1,28 +1,25 @@
 # Setting Up Lit
 
-🔄 _Updated on Sep 14 2022_
+🔄 _Updated on May 22 2023_
 
 📅 _Published on Aug 28 2021_
 
 [Lit](https://lit.dev/) is a library for building [Web Components](https://developer.mozilla.org/en-US/docs/Web/Web_Components).
 
-I like Lit, it makes developing with Web Components quicker and easier.
-
-Since Lit is distributed as npm package(s), before shipping to browser, your code must be **bundled**; and if you use TypeScript for developing, the code must also be **transpiled**. You'll need to set something up before start developing with Lit.
+Since Lit is distributed as npm packages, before shipping to browser, your code must be **bundled**; and if you use TypeScript for developing, the code must also be **transpiled**. Something must be set up before starting developing with Lit.
 
 However, the initial setup process is not very clearly described in the [official documentation](https://lit.dev/docs/tools/overview/). The [Starter Kit project](https://lit.dev/docs/tools/starter-kits/) is also kind of bloated: You have to install a bundle tool with several plugins, a local web server, some polyfills and even a static site generator, and all of them need to be configured separately.
 
 > *Gone are the days when Notepad program alone is enough for writing websites.*
 
-In this post I'd like to share an alternative, simpler setup to start using Lit. Some goals are:
+In this article I'd like to share an alternative, simpler setup to start using Lit. It would serve as a **boilerplate** for building Lit-based web apps. Some goals are:
 
 - TypeScript-based
 - For modern browsers only
-- Minimal dependencies, non-bloated
-- Minimal configs
+- As few dependencies as possible, non-bloated
+- As few configurations as possible
 - Code-splitting: multiple inputs multiple outputs
-- Linting
-- OS: Ubuntu 22.04, IDE: VS Code
+- Code linting
 
 ## Add Lit
 
@@ -40,19 +37,38 @@ Then install Lit (as a dependency):
 npm install lit
 ```
 
+## Directory Structure
+
+We put source files under a `src` directory, target/built files under `dest`, and an additional `assets` for possible static resources such as favicons. Something like this:
+
+```plaintext
+.
+├── assets  <- favicons, images, manifests...
+├── dest    <- target directory to deploy
+└── src     <- source files
+```
+
+The source code will be processed and put into `dest`, The `assets` would also be copied into `dest`. This `dest` directory can then be deployed.
+
+```bash
+mkdir src
+mkdir dest
+mkdir assets
+```
+
 ## Bundle Tool
 
-Lit source files must be transpiled and then bundled together with Lit library.
+Lit source files must be transpiled and bundled together with Lit library.
 
 When it comes to build/bundle tool there are many choices. Lit officially uses [Rollup](https://rollupjs.org/). I'll be using [esbuild](https://esbuild.github.io/) here, because it:
 
 - Is much, much faster
 - Comes with built-in support for
-  - Transpiling TS
+  - Transpiling TypeScript
   - Node module resolution
   - ES code minification
 
-Rollup needs at least three additional plugins for those, why more dependencies if it can be less? Besides, esbuild is just crazy fast.
+Rollup needs at least three additional plugins for those. Why more dependencies if it can be less? Besides, esbuild is just crazy fast.
 
 ```bash
 npm install --save-dev esbuild
@@ -64,27 +80,35 @@ When specifying input files, esbuild doesn't support glob pattern yet, so we cou
 npm i -D globby
 ```
 
-Then create a `build.mjs` for invoking esbuid:
+Then create a function to invoke esbuid:
 
 ```js
 import {globby} from 'globby';
 import {build} from 'esbuild';
 
-const entries = await globby('src/**/*.ts');
-esbuild.build({
-  entryPoints: entries,
-  bundle: true,
-  format: 'esm',
-  splitting: true,
-  outdir: 'dest'
-});
+const bundle = async () => {
+  // get files for bundling
+  const entries = await globby('src/**/*.ts');
+  // bundle
+  return build({
+    entryPoints: entries,
+    bundle: true,
+    format: 'esm',
+    splitting: true,
+    outdir: 'dest/wc'
+  });
+};
+
+// call bundle() to trigger the build process
 ```
 
-Now each time you run `node build.mjs`, esbuild will read every ts file from "src" folder, transpile and bundle it, then create the corresponded js file in "dest" folder. E.g. from `src/foo/foo.ts` to `dest/foo/foo.js`.
+Now each time you run `node build.mjs`, esbuild will read every .ts file from `src`, transpile and bundle it, then create the corresponded .js file in `dest/wc` directory. E.g. from `src/foo/foo.ts` to `dest/wc/foo/foo.js`.
+
+Here we added a `wc` (stands for "web component") directory for better organization of target files.
 
 ## Add TypeScript
 
-When using esbuild as bundle tool, you don't have to install TypeScript (esbuild implemented its own TS parser). But for linting and/or publishing code, TypeScript is still needed.
+When using esbuild as bundle tool, you don't have to install TypeScript (esbuild implemented its own TypeScript parser). But for linting and/or publishing code, TypeScript is still needed.
 
 ```bash
 npm i -D typescript
@@ -104,12 +128,12 @@ Then create our `tsconfig.json` (with minimal overwrites):
 {
   "extends": "@tsconfig/recommended/tsconfig.json",
   "compilerOptions": {
-    "target": "ES2019",
-    "module": "ES2020",
-    "lib": ["ES2020", "DOM", "DOM.Iterable"],
     "declaration": true,
+    "experimentalDecorators": true,
+    "lib": ["ES2021", "DOM", "DOM.Iterable"],
+    "module": "ES2020",
     "moduleResolution": "node",
-    "experimentalDecorators": true
+    "target": "ES2021"
   },
   "include": ["src/**/*.ts"]
 }
@@ -133,13 +157,93 @@ Answer the questions, notably choose `JavaScript modules (import/export)` for mo
 
 ## Local Web Server
 
-Lit's documentation [recommends](https://lit.dev/docs/tools/development/#devserver) using [Web Dev Server](https://modern-web.dev/docs/dev-server/overview/). But why additional installations and configs if you could simply
+Lit's documentation [recommends](https://lit.dev/docs/tools/development/#devserver) using [Web Dev Server](https://modern-web.dev/docs/dev-server/overview/), which means additional installations and configurations.
+
+Alternative: Ubuntu 22.04 has Python installed by default, a (static) web server can be started quickly:
 
 ```bash
 python -m http.server
 ```
 
-Ubuntu 22.04 has Python installed by default, quick and easy.
+## Copy Static Assets
+
+We write a function to copy the `assets` directory to `dest`, using the `cpy` package:
+
+```bash
+npm i -D cpy
+```
+
+```js
+import cpy from 'cpy';
+// copy assets directory and more
+const copy = () => cpy(['assets', 'index.html'], 'dest');
+```
+
+## Clean Up
+
+Each build should have a clean start. Again, write a function that utilizes the `del` package:
+
+```bash
+npm i -D del
+```
+
+```js
+import {deleteAsync} from 'del';
+// empty the output directory
+const clean = () => deleteAsync('dest/*');
+```
+
+## Build Script
+
+The final build process should be:
+
+1. Clean up output directory
+2. Copy assets
+3. Build and bundle source files
+
+Step 1 must be run first, while step 2 and 3 can be run parallel after that. We could utilize `Promise` here for simple "series" and "parallel":
+
+```js
+// light parallel
+const copyAndBundle = () => Promise.all([copy(), bundle()]);
+
+// series...
+clean().then(copyAndBundle);
+```
+
+Put together, the complete `build.mjs`:
+
+```js
+import {deleteAsync} from 'del';
+import cpy from 'cpy';
+import { globby } from 'globby';
+import { build } from 'esbuild';
+
+// delete dest
+const clean = () => deleteAsync('dest/*');
+
+// copy assets
+const copy = () => cpy(['assets', 'index.html'], 'dest');
+
+const bundle = async () => {
+  // get files for bundling
+  const entries = await globby('src/**/*.ts');
+  // bundle
+  return build({
+    entryPoints: entries,
+    bundle: true,
+    format: 'esm',
+    splitting: true,
+    outdir: 'dest/wc'
+  });
+};
+
+// some lite parallel
+const copyAndBundle = () => Promise.all([copy(), bundle()]);
+
+// go
+clean().then(copyAndBundle);
+```
 
 ## Example Code
 
@@ -200,9 +304,15 @@ export class Bar extends LitElement {
 }
 ```
 
-Now run our "build.mjs": `node build.mjs`, under the `dest` directory you'll get the `foo/foo.js` and `bar/bar.js`, as well as a `chunk-XXX.js` which is automatically created by esbuild with the `splitting: true` option, this is basically the Lit library shared by both web components.
+Now run our "build.mjs":
 
-Finally we can use the components on our page:
+```bash
+node build.mjs
+```
+
+Under the `dest` directory you'll get the `foo/foo.js` and `bar/bar.js`, as well as a `chunk-XXX.js` which is automatically created by esbuild with the `splitting: true` option, this is basically the Lit library shared by both web components.
+
+Finally we can use the components on our page `index.html`:
 
 ```html
 <!DOCTYPE html>
@@ -211,8 +321,8 @@ Finally we can use the components on our page:
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Lit Setup</title>
-  <script type="module" src="dest/foo/foo.js"></script>
-  <script type="module" src="dest/bar/bar.js"></script>
+  <script type="module" src="dest/wc/foo/foo.js"></script>
+  <script type="module" src="dest/wc/bar/bar.js"></script>
 </head>
 <body>
   <ui-foo title="Lit Setup">

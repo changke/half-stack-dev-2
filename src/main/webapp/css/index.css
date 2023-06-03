@@ -1,6 +1,4 @@
-/* code highlight */
 @import url('../../../../node_modules/highlight.js/styles/nord.css');
-
 @import url('general.css');
 @import url('../modules/mod-header/header.css');
 @import url('../modules/mod-archive/archive.css');
