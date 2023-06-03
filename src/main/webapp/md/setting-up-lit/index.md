@@ -321,8 +321,8 @@ Finally we can use the components on our page `index.html`:
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Lit Setup</title>
-  <script type="module" src="dest/wc/foo/foo.js"></script>
-  <script type="module" src="dest/wc/bar/bar.js"></script>
+  <script type="module" src="wc/foo/foo.js"></script>
+  <script type="module" src="wc/bar/bar.js"></script>
 </head>
 <body>
   <ui-foo title="Lit Setup">
@@ -331,6 +331,15 @@ Finally we can use the components on our page `index.html`:
 </body>
 </html>
 ```
+
+This `index.html` will be copied to `dest` directory after executing `build.mjs`. Now switch to `dest` and start the Python static web server:
+
+```bash
+cd dest
+python -m http.server
+```
+
+Start a browser and visit `http://0.0.0.0:8000/`, you should see the result.
 
 And that's it. The complete source code can be found [here](https://github.com/changke/lit-setup).
 
