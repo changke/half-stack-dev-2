@@ -1,16 +1,10 @@
 <section data-mod-name="archive" data-mod-bypass>
   <ul class="archive__postlist">
+    {% for post in postList %}
     <li class="archive__post">
-      <a href="/posts/introducing-shoelace/" class="archive__link">Introducing &quot;Shoelace&quot;</a>
-      <time datetime="2021-10-29" class="archive__time">Oct 29 2021</time>
+      <a href="{{ post.url }}" class="archive__link">{{ post.title }}</a>
+      <time datetime="{{ post.pubDate.dateTime }}" class="archive__time">{{ post.pubDate.label }}</time>
     </li>
-    <li class="archive__post">
-      <a href="/posts/setting-up-lit/" class="archive__link">Setting Up Lit</a>
-      <time datetime="2021-08-28" class="archive__time">Aug 28 2021</time>
-    </li>
-    <li class="archive__post">
-      <a href="/posts/hello-world/" class="archive__link">Hello, world!</a>
-      <time datetime="2021-07-22" class="archive__time">Jul 22 2021</time>
-    </li>
+    {% endfor %}
   </ul>
 </section>

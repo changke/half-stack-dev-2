@@ -1,0 +1,11 @@
+{% extends "templates/rss.njk" %}
+
+{% block content %}
+  {% for post in postList %}
+    <item>
+      <title>{{ post.title }}</title>
+      <link>https://half-stack.dev{{ post.url }}</link>
+      <description>Full-text available soon. For now please read on site.</description>
+    </item>
+  {% endfor %}
+{% endblock %}

@@ -38,6 +38,7 @@ export class Nav extends LitElement {
 
   items: Array<NavItemLink> = [
     {title: 'Home', href: '/'},
+    {title: 'RSS', href: '/rss/index.xml'},
     {title: 'About', href: '/about/'}
   ];
 
