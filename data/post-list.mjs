@@ -1,5 +1,13 @@
 export default [
   {
+    title: 'Normal JavaScript Included As Module',
+    pubDate: {
+      dateTime: '2023-09-06',
+      label: 'Sep 06 2023'
+    },
+    url: '/posts/normal-js-included-as-module/'
+  },
+  {
     title: 'How to Lint Lit Styles',
     pubDate: {
       dateTime: '2023-06-05',
