@@ -1,7 +1,5 @@
-import * as vars from './build/vars.mjs';
-
 export default {
-  rootDir: vars.targetRoot,
+  rootDir: 'public',
   port: 9090,
   http2: true
 };

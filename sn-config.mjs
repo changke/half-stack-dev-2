@@ -1,4 +1,4 @@
-import postList from './build/post-list.mjs';
+import postList from './data/post-list.mjs';
 
 export default {
   moduleEntries: [
