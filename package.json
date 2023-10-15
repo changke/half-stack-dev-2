@@ -1,6 +1,6 @@
 {
   "name": "half-stack-dev",
-  "version": "2.2.0",
+  "version": "2.3.0",
   "description": "My blog powered by StaticNext",
   "scripts": {
     "lint:css": "stylelint \"src/main/webapp/{css,modules}/**/*.css\"",
@@ -26,24 +26,24 @@
   "author": "@changke",
   "license": "ISC",
   "devDependencies": {
-    "@changke/staticnext-build": "^0.4.0",
+    "@changke/staticnext-build": "^0.4.3",
     "@open-wc/testing": "^3.2.0",
-    "@tsconfig/recommended": "^1.0.2",
-    "@typescript-eslint/eslint-plugin": "^6.6.0",
-    "@typescript-eslint/parser": "^6.6.0",
-    "@web/dev-server": "^0.3.1",
+    "@tsconfig/recommended": "^1.0.3",
+    "@typescript-eslint/eslint-plugin": "^6.7.5",
+    "@typescript-eslint/parser": "^6.7.5",
+    "@web/dev-server": "^0.3.3",
     "@web/dev-server-esbuild": "^0.4.1",
-    "@web/test-runner": "^0.17.1",
+    "@web/test-runner": "^0.17.2",
     "@web/test-runner-puppeteer": "^0.14.0",
-    "eslint": "^8.48.0",
-    "sinon": "^15.2.0",
+    "eslint": "^8.51.0",
+    "sinon": "^16.1.0",
     "stylelint": "^15.10.3",
     "stylelint-config-standard": "^34.0.0",
     "typescript": "^5.2.2"
   },
   "dependencies": {
-    "@changke/staticnext-lib": "^1.3.1",
-    "lit": "^2.8.0",
-    "lit-html": "^2.8.0"
+    "@changke/staticnext-lib": "^1.4.0",
+    "lit": "^3.0.0",
+    "lit-html": "^3.0.0"
   }
 }
