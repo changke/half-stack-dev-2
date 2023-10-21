@@ -1,5 +1,13 @@
 export default [
   {
+    title: 'Chrome Mobile Font Size Issue',
+    pubDate: {
+      dateTime: '2023-10-21',
+      label: 'Oct 21 2023'
+    },
+    url: '/posts/chrome-mobile-font-size/'
+  },
+  {
     title: 'Normal JavaScript Included As Module',
     pubDate: {
       dateTime: '2023-09-06',
