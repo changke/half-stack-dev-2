@@ -5,7 +5,8 @@
     <item>
       <title>{{ post.title }}</title>
       <link>https://half-stack.dev{{ post.url }}</link>
-      <description>Full-text available soon. For now please read on site.</description>
+      <description>Full-text available soon.</description>
+      <pubDate>{{ post.pubDate.dateTime }}</pubDate>
     </item>
   {% endfor %}
 {% endblock %}

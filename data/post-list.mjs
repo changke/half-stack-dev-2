@@ -1,8 +1,13 @@
+const formatDate = dateStr => {
+  const dt = new Date(dateStr);
+  return dt.toUTCString();
+};
+
 export default [
   {
     title: 'Chrome Mobile Font Size Issue',
     pubDate: {
-      dateTime: '2023-10-21',
+      dateTime: formatDate('2023-10-21'),
       label: 'Oct 21 2023'
     },
     url: '/posts/chrome-mobile-font-size/'
@@ -10,7 +15,7 @@ export default [
   {
     title: 'Normal JavaScript Included As Module',
     pubDate: {
-      dateTime: '2023-09-06',
+      dateTime: formatDate('2023-09-06'),
       label: 'Sep 06 2023'
     },
     url: '/posts/normal-js-included-as-module/'
@@ -18,7 +23,7 @@ export default [
   {
     title: 'How to Lint Lit Styles',
     pubDate: {
-      dateTime: '2023-06-05',
+      dateTime: formatDate('2023-06-05'),
       label: 'Jun 05 2023'
     },
     url: '/posts/howto-lint-lit-styles/'
@@ -26,7 +31,7 @@ export default [
   {
     title: 'Introducing "Shoelace"',
     pubDate: {
-      dateTime: '2021-10-29',
+      dateTime: formatDate('2021-10-29'),
       label: 'Oct 29 2021'
     },
     url: '/posts/introducing-shoelace/'
@@ -34,7 +39,7 @@ export default [
   {
     title: 'Setting Up Lit',
     pubDate: {
-      dateTime: '2021-08-28',
+      dateTime: formatDate('2021-08-28'),
       label: 'Aug 28 2021'
     },
     url: '/posts/setting-up-lit/'
@@ -42,7 +47,7 @@ export default [
   {
     title: 'Hello World!',
     pubDate: {
-      dateTime: '2021-07-22',
+      dateTime: formatDate('2021-07-22'),
       label: 'Jul 22 2021'
     },
     url: '/posts/hello-world/'
