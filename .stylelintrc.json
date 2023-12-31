@@ -2,6 +2,7 @@
   "extends": "stylelint-config-standard",
   "rules": {
     "rule-empty-line-before": null,
-    "selector-class-pattern": null
+    "selector-class-pattern": null,
+    "value-keyword-case": null
   }
 }
