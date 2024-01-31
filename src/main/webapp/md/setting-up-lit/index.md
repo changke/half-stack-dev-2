@@ -1,6 +1,6 @@
 # Setting Up Lit
 
-🔄 _Updated on May 22 2023_
+🔄 _Updated on Jan 04 2024_
 
 📅 _Published on Aug 28 2021_
 
@@ -12,7 +12,7 @@ However, the initial setup process is not very clearly described in the [officia
 
 > *Gone are the days when Notepad program alone is enough for writing websites.*
 
-In this article I'd like to share an alternative, simpler setup to start using Lit. It would serve as a **boilerplate** for building Lit-based web apps. Some goals are:
+In this article I'd like to share an alternative, simpler setup to start using Lit. It would serve as a **boilerplate** for building Lit-powered web components / apps. Some goals are:
 
 - TypeScript-based
 - For modern browsers only
@@ -31,7 +31,7 @@ cd lit-setup
 npm init -y
 ```
 
-Then install Lit (as a dependency):
+Then install Lit as a dependency:
 
 ```bash
 npm install lit
@@ -68,13 +68,13 @@ When it comes to build/bundle tool there are many choices. Lit officially uses [
   - Node module resolution
   - ES code minification
 
-Rollup needs at least three additional plugins for those. Why more dependencies if it can be less? Besides, esbuild is just crazy fast.
+Rollup needs at least three additional plugins for those. Why more dependencies if it can be less?
 
 ```bash
 npm install --save-dev esbuild
 ```
 
-When specifying input files, esbuild doesn't support glob pattern yet, so we could also use [globby](https://github.com/sindresorhus/globby):
+When specifying input files, ~~esbuild doesn't support glob pattern yet~~ esbuild supports glob style since v0.19, but it's not even mentioned in [the documentation](https://esbuild.github.io/api/#entry-points), I'll still prefer to use [globby](https://github.com/sindresorhus/globby):
 
 ```bash
 npm i -D globby
@@ -216,8 +216,8 @@ Put together, the complete `build.mjs`:
 ```js
 import {deleteAsync} from 'del';
 import cpy from 'cpy';
-import { globby } from 'globby';
-import { build } from 'esbuild';
+import {globby} from 'globby';
+import {build} from 'esbuild';
 
 // delete dest
 const clean = () => deleteAsync('dest/*');
