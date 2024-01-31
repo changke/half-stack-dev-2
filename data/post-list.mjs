@@ -1,9 +1,18 @@
+import {readFileSync} from 'node:fs';
+import * as path from 'node:path';
+
 const formatDate = dateStr => {
   const dt = new Date(dateStr);
   return dt.toUTCString();
 };
 
-export default [
+const loadFeedContent = (p) => {
+  const filePath = path.join('public', p, 'index.txt');
+  const content = readFileSync(filePath, {encoding: 'utf-8'});
+  return content;
+};
+
+const postList = [
   {
     title: 'Chrome Mobile Font Size Issue',
     pubDate: {
@@ -53,3 +62,9 @@ export default [
     url: '/posts/hello-world/'
   }
 ];
+
+postList.forEach(post => {
+  post['content'] = loadFeedContent(post.url);
+});
+
+export default postList;
