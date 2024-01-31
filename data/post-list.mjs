@@ -9,7 +9,9 @@ const formatDate = dateStr => {
 const loadFeedContent = (p) => {
   const filePath = path.join('public', p, 'index.txt');
   const content = readFileSync(filePath, {encoding: 'utf-8'});
-  return content;
+  const contentArray = content.split('\n');
+  contentArray.splice(0, 1);
+  return contentArray.join('\n');
 };
 
 const postList = [
