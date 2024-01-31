@@ -1,6 +1,6 @@
 {
   "name": "half-stack-dev",
-  "version": "2.5.0",
+  "version": "2.5.2",
   "description": "My blog powered by StaticNext",
   "scripts": {
     "lint:css": "stylelint \"src/main/webapp/{css,modules}/**/*.css\"",
@@ -26,7 +26,7 @@
   "author": "@changke",
   "license": "ISC",
   "devDependencies": {
-    "@changke/staticnext-build": "^0.5.1",
+    "@changke/staticnext-build": "^0.5.2",
     "@open-wc/testing": "^4.0.0",
     "@tsconfig/recommended": "^1.0.3",
     "@types/mocha": "^10.0.6",

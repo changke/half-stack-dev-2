@@ -64,7 +64,7 @@ const postList = [
 ];
 
 postList.forEach(post => {
-  post['content'] = loadFeedContent(post.url);
+  post['content'] = () => loadFeedContent(post.url);
 });
 
 export default postList;
