@@ -1,6 +1,6 @@
 {
   "name": "half-stack-dev",
-  "version": "2.5.2",
+  "version": "2.5.3",
   "description": "My blog powered by StaticNext",
   "scripts": {
     "lint:css": "stylelint \"src/main/webapp/{css,modules}/**/*.css\"",
