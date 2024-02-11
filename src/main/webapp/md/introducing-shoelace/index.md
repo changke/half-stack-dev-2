@@ -1,6 +1,6 @@
 # Introducing "Shoelace"
 
-📅 _Published on Oct 29 2021_
+📅 _Published on Fri Oct 29 2021_
 
 ## A Collection of Lit Examples
 

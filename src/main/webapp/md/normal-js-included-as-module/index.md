@@ -1,6 +1,6 @@
 # Normal JavaScript Included As Module
 
-📅 _Published on Sep 06 2023_
+📅 _Published on Wed Sep 06 2023_
 
 We can include a JavaScript module via `script` element: `<script type="module" src="foo.js"></script>`.
 

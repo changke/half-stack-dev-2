@@ -1,8 +1,8 @@
 # Setting Up Lit
 
-🔄 _Updated on Jan 04 2024_
+🔄 _Updated on Thu Jan 04 2024_
 
-📅 _Published on Aug 28 2021_
+📅 _Published on Sat Aug 28 2021_
 
 [Lit](https://lit.dev/) is a library for building [Web Components](https://developer.mozilla.org/en-US/docs/Web/Web_Components).
 

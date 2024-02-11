@@ -1,18 +1,18 @@
 # Chrome Mobile Font Size Issue
 
-📅 _Published on Oct 21 2023_
+📅 _Published on Sat Oct 21 2023_
 
-Recently, while browsing my personal blog on my Tablet with Chrome (mobile), I noticed sometimes the font size seems to be larger than what I defined in CSS.
+Recently, while browsing my [personal blog](https://blog.sinzy.net/@why) on my Tablet with Chrome (mobile), I noticed sometimes the font size seems to be larger than what I defined in CSS.
 
-Sometimes, if I scroll a bit, the font size then becomes smaller to its correct size.
+Often, if I scroll a bit, the font size then becomes smaller to its correct value.
 
-This doesn't happen to all pages, but especially often for pages with lots of text, like a blog post page.
+This doesn't happen to all pages, but especially frequent for pages with lots of text, like a blog post page.
 
 This bothers me.
 
 Turns out it is an old "feature" of mobile browsers to "enhance" readability of web pages on mobile screen.
 
-I found the explanation and solution first on [this post](https://benedikt.io/2021/04/android-chrome-edge-aendern-schriftgroesse-scrollen-font-boosting-blink-bug/) (in German).
+I found the explanation and solution firstly on [this post](https://benedikt.io/2021/04/android-chrome-edge-aendern-schriftgroesse-scrollen-font-boosting-blink-bug/) (in German).
 
 The cause is (the lack of) [`text-size-adjust` CSS property](https://developer.mozilla.org/en-US/docs/Web/CSS/text-size-adjust).
 

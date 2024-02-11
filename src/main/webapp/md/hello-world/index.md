@@ -1,8 +1,8 @@
 # Hello, world
 
-🔄 _Updated on Jul 25 2021_
+🔄 _Updated on Sun Jul 25 2021_
 
-📅 _Published on Jul 22 2021_
+📅 _Published on Thu Jul 22 2021_
 
 **TL;DR** Just dummy text...
 
