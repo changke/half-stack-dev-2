@@ -30,21 +30,21 @@
     "@open-wc/testing": "^4.0.0",
     "@tsconfig/recommended": "^1.0.3",
     "@types/mocha": "^10.0.6",
-    "@typescript-eslint/eslint-plugin": "^6.20.0",
-    "@typescript-eslint/parser": "^6.20.0",
+    "@typescript-eslint/eslint-plugin": "^6.21.0",
+    "@typescript-eslint/parser": "^6.21.0",
     "@web/dev-server": "^0.4.2",
-    "@web/dev-server-esbuild": "^1.0.1",
+    "@web/dev-server-esbuild": "^1.0.2",
     "@web/test-runner": "^0.18.0",
     "@web/test-runner-puppeteer": "^0.15.0",
     "eslint": "^8.56.0",
     "sinon": "^17.0.1",
-    "stylelint": "^16.2.0",
+    "stylelint": "^16.2.1",
     "stylelint-config-standard": "^36.0.0",
     "typescript": "^5.3.3"
   },
   "dependencies": {
     "@changke/staticnext-lib": "^1.4.2",
-    "lit": "^3.1.1",
-    "lit-html": "^3.1.1"
+    "lit": "^3.1.2",
+    "lit-html": "^3.1.2"
   }
 }
