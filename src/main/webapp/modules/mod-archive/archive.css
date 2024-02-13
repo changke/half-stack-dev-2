@@ -12,7 +12,9 @@
   align-items: center;
   justify-content: space-between;
   line-height: 2;
+  gap: var(--gap05);
 }
 .archive__time {
   color: darkgray;
+  font-size: calc(var(--base-font-size) - 0.2rem);
 }
