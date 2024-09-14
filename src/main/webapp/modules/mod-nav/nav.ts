@@ -36,7 +36,7 @@ export class Nav extends LitElement {
   @property()
   current = '';
 
-  items: Array<NavItemLink> = [
+  items: NavItemLink[] = [
     {title: 'Home', href: '/'},
     {title: 'RSS', href: '/rss/index.xml'},
     {title: 'About', href: '/about/'}

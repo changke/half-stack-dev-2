@@ -1,7 +1,7 @@
 import {Module} from '@changke/staticnext-lib';
 
 export default class Example extends Module {
-  colorMods_: Array<string>;
+  colorMods_: string[];
   counter_: number;
   colorCode_: string;
 

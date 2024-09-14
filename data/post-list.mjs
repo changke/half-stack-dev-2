@@ -12,7 +12,7 @@ const genPubDateObj = dateStr => {
   };
 };
 
-const loadFeedContent = (pathPart) => {
+const loadFeedContent = pathPart => {
   try {
     const filePath = path.join('public', pathPart, 'index.txt');
     const content = readFileSync(filePath, {encoding: 'utf-8'});

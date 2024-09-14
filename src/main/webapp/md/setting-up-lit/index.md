@@ -1,6 +1,6 @@
 # Setting Up Lit
 
-🔄 _Updated on Thu Jan 04 2024_
+🔄 _Updated on Thu Sep 12 2024_
 
 📅 _Published on Sat Aug 28 2021_
 
@@ -10,7 +10,7 @@ Since Lit is distributed as npm packages, before shipping to browser, your code 
 
 However, the initial setup process is not very clearly described in the [official documentation](https://lit.dev/docs/tools/overview/). The [Starter Kit project](https://lit.dev/docs/tools/starter-kits/) is also kind of bloated: You have to install a bundle tool with several plugins, a local web server, some polyfills and even a static site generator, and all of them need to be configured separately.
 
-> *Gone are the days when Notepad program alone is enough for writing websites.*
+> _Gone are the days when Notepad program alone is enough for writing websites._
 
 In this article I'd like to share an alternative, simpler setup to start using Lit. It would serve as a **boilerplate** for building Lit-powered web components / apps. Some goals are:
 
@@ -130,10 +130,10 @@ Then create our `tsconfig.json` (with minimal overwrites):
   "compilerOptions": {
     "declaration": true,
     "experimentalDecorators": true,
-    "lib": ["ES2021", "DOM", "DOM.Iterable"],
-    "module": "ES2020",
-    "moduleResolution": "node",
-    "target": "ES2021"
+    "lib": ["ES2023", "DOM", "DOM.Iterable"],
+    "module": "ES2022",
+    "moduleResolution": "Bundler",
+    "target": "ES2023"
   },
   "include": ["src/**/*.ts"]
 }
@@ -144,16 +144,32 @@ Then create our `tsconfig.json` (with minimal overwrites):
 [ESLint](https://eslint.org/), what else? Although it does introduce tons of dependencies, static linting for coding is like spell checking for writing: essential.
 
 ```bash
-npm i -D eslint
+npm i -D eslint @eslint/js
 ```
 
 Configuring ESLint is very easy thanks to its interactive guide:
 
 ```bash
-npx eslint --init
+npm init @eslint/config
 ```
 
 Answer the questions, notably choose `JavaScript modules (import/export)` for module, `None of these` for frameworks, `Yes` for TypeScript, `Browser` for environment and let eslint install dependencies afterwards.
+
+The auto-generated `eslint.config.mjs` is already usable, we'd ignore the bundled files, since they don't need to be linted.
+
+```js
+import globals from "globals";
+import pluginJs from "@eslint/js";
+import tseslint from "typescript-eslint";
+
+export default [
+  {files: ['**/*.{js,mjs,cjs,ts}']},
+  {languageOptions: {globals: globals.browser}},
+  pluginJs.configs.recommended,
+  ...tseslint.configs.recommended,
+  {ignores: ['dest/*']}
+];
+```
 
 ## Local Web Server
 

@@ -2,7 +2,7 @@ interface IUIVariable {
   pageInfo: {
     brand: string;
     lang: string;
-  }
+  };
 }
 
 declare global {

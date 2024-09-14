@@ -13,7 +13,7 @@ self.addEventListener('activate', () => {
   self.registration.unregister()
     .then(() => self.clients.matchAll({type: 'window'}))
     .then(windowClients => {
-      windowClients.forEach((windowClient) => {
+      windowClients.forEach(windowClient => {
         windowClient.navigate(windowClient.url);
       });
     });
