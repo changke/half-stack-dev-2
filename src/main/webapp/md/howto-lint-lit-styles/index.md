@@ -1,6 +1,6 @@
 # How to Lint Lit Styles
 
-📅 _Published on Mon Jun 05 2023_
+📅 _Published: 2023-06-05_
 
 Normally CSS styles of a Lit component is written as a .ts file so typical style linter will not check against it.
 

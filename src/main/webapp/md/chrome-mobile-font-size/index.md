@@ -1,6 +1,6 @@
 # Chrome Mobile Font Size Issue
 
-📅 _Published on Sat Oct 21 2023_
+📅 _Published: 2023-10-21_
 
 Recently, while browsing my [personal blog](https://blog.sinzy.net/@why) on my Tablet with Chrome (mobile), I noticed sometimes the font size seems to be larger than what I defined in CSS.
 
