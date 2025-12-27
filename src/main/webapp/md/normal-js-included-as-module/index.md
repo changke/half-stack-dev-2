@@ -1,4 +1,4 @@
-# Normal JavaScript Included As Module
+# Normal JavaScript Included as Module
 
 📅 _Published: 2023-09-06_
 

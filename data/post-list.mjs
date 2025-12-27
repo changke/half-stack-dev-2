@@ -1,8 +1,6 @@
 import {readFileSync} from 'node:fs';
 import * as path from 'node:path';
-import {createRequire} from 'node:module';
-
-const require = createRequire(import.meta.url);
+import postList from './post-list.json' with {type: 'json'};
 
 const genPubDateObj = dateStr => {
   const dt = new Date(dateStr);
@@ -23,8 +21,6 @@ const loadFeedContent = pathPart => {
     return 'Full-text available on website.';
   }
 };
-
-const postList = require('./post-list.json');
 
 postList.forEach(post => {
   post['pubDate'] = genPubDateObj(post.pubDate);
