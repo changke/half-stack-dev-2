@@ -3,9 +3,10 @@
   "compilerOptions": {
     "experimentalDecorators": true,
     "lib": ["ES2023", "DOM", "DOM.Iterable"],
-    "module": "ES2022",
+    "module": "ESNext",
     "moduleResolution": "Bundler",
     "target": "ES2023",
+    "useDefineForClassFields": false,
     "verbatimModuleSyntax": true
   },
   "include": ["src/main/webapp/**/*.ts"]

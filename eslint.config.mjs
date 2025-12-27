@@ -1,10 +1,11 @@
 // @ts-check
 import globals from 'globals';
+import {defineConfig} from 'eslint/config';
 import eslint from '@eslint/js';
 import tseslint from 'typescript-eslint';
 import stylistic from '@stylistic/eslint-plugin';
 
-export default tseslint.config(
+export default defineConfig([
   {
     name: 'my/typescript-lint',
     files: ['**/*.ts'],
@@ -18,14 +19,13 @@ export default tseslint.config(
         ...globals.browser
       },
       parserOptions: {
-        projectService: true,
-        tsconfigRootDir: import.meta.dirname
+        projectService: true
       }
     }
   },
   {
     name: 'my/javascript-lint',
-    files: ['*.mjs'],
+    files: ['**/*.mjs'],
     extends: [eslint.configs.recommended],
     languageOptions: {
       globals: {
@@ -56,4 +56,4 @@ export default tseslint.config(
       '@stylistic/space-before-function-paren': ['error', {anonymous: 'ignore', asyncArrow: 'always', named: 'never'}]
     }
   }
-);
+]);

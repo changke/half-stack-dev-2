@@ -1,0 +1,18 @@
+const render = data => String.raw`
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="My journey in front-end development" />
+  <link rel="preload" href="https://border0-css.netlify.app/b0.min.css" as="style" />
+  <link rel="icon" href="${data.assetsUrlPath}/favicon.svg" />
+  <link rel="preconnect" href="https://fonts.bunny.net" />
+  <link href="https://fonts.bunny.net/css?family=fira-sans:400,700|fira-mono:400" rel="stylesheet" />
+  <link rel="stylesheet" href="https://border0-css.netlify.app/b0.min.css" />
+  <link rel="stylesheet" href="${data.assetsUrlPath}/css/index.css" />
+  <link href="/rss/index.xml" rel="alternate" type="application/rss+xml" title="RSS Feed" />
+  <script>
+    window.ui = window.ui || {};
+    ui.pageInfo = {brand: 'one', lang: 'en'};
+  </script>
+`;
+
+export default render;
