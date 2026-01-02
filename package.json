@@ -30,7 +30,7 @@
   "license": "ISC",
   "devDependencies": {
     "@changke/staticnext-build": "^0.26.1",
-    "@eslint/js": "^9.39.1",
+    "@eslint/js": "^9.39.2",
     "@open-wc/testing": "^4.0.0",
     "@stylistic/eslint-plugin": "^5.6.1",
     "@tsconfig/recommended": "^1.0.13",
@@ -39,18 +39,18 @@
     "@web/dev-server-esbuild": "^1.0.4",
     "@web/test-runner": "^0.20.2",
     "@web/test-runner-puppeteer": "^0.18.0",
-    "eslint": "^9.39.1",
-    "globals": "^16.5.0",
-    "sinon": "^21.0.0",
+    "eslint": "^9.39.2",
+    "globals": "^17.0.0",
+    "sinon": "^21.0.1",
     "stylelint": "^16.26.1",
     "stylelint-config-standard": "^39.0.1",
     "typescript": "^5.9.3",
-    "typescript-eslint": "^8.48.0"
+    "typescript-eslint": "^8.51.0"
   },
   "dependencies": {
     "@catppuccin/highlightjs": "^1.0.1",
     "@changke/staticnext-lib": "^1.13.0",
-    "lit": "^3.3.1",
-    "lit-html": "^3.3.1"
+    "lit": "^3.3.2",
+    "lit-html": "^3.3.2"
   }
 }
