@@ -5,8 +5,8 @@ import archive from '../../modules/mod-archive/archive.tmpl.mjs';
 
 class IndexPage extends GeneralTemplate {
   #blocks = {
-    title: this.title,
-    content: this.content
+    title: this.title.bind(this),
+    content: this.content.bind(this)
   };
 
   title() {
@@ -22,8 +22,8 @@ class IndexPage extends GeneralTemplate {
   }
 
   renderBlock(blockName, data) {
-    super.renderBlock(blockName);
-    return this.#blocks[blockName]?.call(this, data);
+    super.renderBlock(blockName, data);
+    return this.#blocks[blockName](data);
   }
 }
 

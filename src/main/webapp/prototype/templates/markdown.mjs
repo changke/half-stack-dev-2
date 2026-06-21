@@ -5,10 +5,12 @@ import footer from '../../modules/mod-footer/footer.tmpl.mjs';
 class MarkdownTemplate {
   blockNames = ['title', 'content'];
 
-  renderBlock(blockName) {
+  // eslint-disable-next-line no-unused-vars
+  renderBlock(blockName, data) {
     if (!this.blockNames.includes(blockName)) {
-      console.warn(`Block "${blockName}" is not defined in template.`);
+      throw new Error(`Block "${blockName}" not found!`);
     }
+    return '';
   }
 
   render(data) {

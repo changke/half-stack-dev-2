@@ -1,6 +1,6 @@
 # Setting Up Lit
 
-🔄 _Updated: 2024-09-12_
+🔄 _Updated: 2026-01-02_
 
 📅 _Published: 2021-08-28_
 
@@ -68,7 +68,7 @@ When it comes to build/bundle tool there are many choices. Lit officially uses [
   - Node module resolution
   - ES code minification
 
-Rollup needs at least three additional plugins for those. Why more dependencies if it can be less?
+Rollup needs at least three additional plugins for those tasks. Why more dependencies if it can be less?
 
 ```bash
 npm install --save-dev esbuild

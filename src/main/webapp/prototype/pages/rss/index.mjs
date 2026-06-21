@@ -2,7 +2,7 @@ import RSSTemplate from '../../templates/rss.mjs';
 
 class RSSPage extends RSSTemplate {
   #blocks = {
-    content: this.content
+    content: this.content.bind(this)
   };
 
   content(data) {
@@ -21,8 +21,8 @@ class RSSPage extends RSSTemplate {
   }
 
   renderBlock(blockName, data) {
-    super.renderBlock(blockName);
-    return this.#blocks[blockName]?.call(this, data);
+    super.renderBlock(blockName, data);
+    return this.#blocks[blockName](data);
   }
 }
 

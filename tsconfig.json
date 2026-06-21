@@ -2,11 +2,12 @@
   "extends": "@tsconfig/recommended/tsconfig.json",
   "compilerOptions": {
     "experimentalDecorators": true,
-    "lib": ["ES2023", "DOM", "DOM.Iterable"],
+    "lib": ["ES2024", "DOM", "DOM.Iterable"],
     "module": "ESNext",
     "moduleResolution": "Bundler",
-    "target": "ES2023",
-    "useDefineForClassFields": false,
+    "rootDir": "./src",
+    "target": "ES2024",
+    "types": ["mocha"],
     "verbatimModuleSyntax": true
   },
   "include": ["src/main/webapp/**/*.ts"]

@@ -5,7 +5,27 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## 5.0.0
+2026-06-21
+### Changed
+- TypeScript upgraded to v6
+- Various package updates
+- `border0-css` upgraded to v2
+
+## 4.0.0
+2026-02-23
+### Changed
+- Upgraded `@changke/staticnext-lib` to v2
+- Updated `@changke/staticnext-build` / adjusted JSTmpl code
+- Upgraded `eslint` to v10
+- Various other package updates
+
 ## 3.0.0
+2025-12-27
+### Changed
+- Now using new `staticnext-build` package
+- New templates using (experimental) `@changke/jstmpl`
+
 
 ## 2.7.0
 2025-06-01
