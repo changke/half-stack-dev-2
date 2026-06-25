@@ -5,16 +5,26 @@
 .archive__post {
   margin: 0;
   padding: 0;
+  display: flex;
+}
+.archive__postlist {
+  flex-direction: column;
+  gap: var(--b0-gap);
 }
 .archive__post {
   list-style: none;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  line-height: 2;
-  gap: var(--gap05);
+  flex-direction: column;
 }
 .archive__time {
   color: darkgray;
-  font-size: calc(var(--base-font-size) - 0.2rem);
+  font-size: calc(var(--b0-bfs) - 0.2rem);
+}
+
+@media (width >= 44em) {
+  .archive__post {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    line-height: 2;
+  }
 }

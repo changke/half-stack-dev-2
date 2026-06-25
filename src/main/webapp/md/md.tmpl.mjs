@@ -2,8 +2,8 @@ import MarkdownTemplate from '../prototype/templates/markdown.mjs';
 
 class MarkdownPage extends MarkdownTemplate {
   #blocks = {
-    title: this.title,
-    content: this.content
+    title: this.title.bind(this),
+    content: this.content.bind(this)
   };
 
   renderBlock(blockName, data) {
