@@ -49,9 +49,9 @@ export class Nav extends LitElement {
   render() {
     return html`
       <ul>
-        ${this.items.map(item => html`
-          <li><a class="${this.getCssClass(item.title)}" href="${item.href}">${item.title}</a></li>
-        `)}
+        ${this.items.map(
+          item => html` <li><a class="${this.getCssClass(item.title)}" href="${item.href}">${item.title}</a></li> `
+        )}
       </ul>
     `;
   }

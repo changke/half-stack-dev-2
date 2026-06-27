@@ -158,9 +158,9 @@ Answer the questions, notably choose `JavaScript modules (import/export)` for mo
 The auto-generated `eslint.config.mjs` is already usable, we'd ignore the bundled files, since they don't need to be linted.
 
 ```js
-import globals from "globals";
-import pluginJs from "@eslint/js";
-import tseslint from "typescript-eslint";
+import globals from 'globals';
+import pluginJs from '@eslint/js';
+import tseslint from 'typescript-eslint';
 
 export default [
   {files: ['**/*.{js,mjs,cjs,ts}']},
@@ -283,7 +283,11 @@ import {customElement, property} from 'lit/decorators.js';
 
 @customElement('ui-foo')
 export class Foo extends LitElement {
-  static styles = css`h3 {color: darkcyan;}`;
+  static styles = css`
+    h3 {
+      color: darkcyan;
+    }
+  `;
 
   @property()
   title = 'Untitled';
@@ -333,18 +337,18 @@ Finally we can use the components on our page `index.html`:
 ```html
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Lit Setup</title>
-  <script type="module" src="wc/foo/foo.js"></script>
-  <script type="module" src="wc/bar/bar.js"></script>
-</head>
-<body>
-  <ui-foo title="Lit Setup">
-    <ui-bar items="Lit,esbuild,TypeScript,ESLint"></ui-bar>
-  </ui-foo>
-</body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Lit Setup</title>
+    <script type="module" src="wc/foo/foo.js"></script>
+    <script type="module" src="wc/bar/bar.js"></script>
+  </head>
+  <body>
+    <ui-foo title="Lit Setup">
+      <ui-bar items="Lit,esbuild,TypeScript,ESLint"></ui-bar>
+    </ui-foo>
+  </body>
 </html>
 ```
 

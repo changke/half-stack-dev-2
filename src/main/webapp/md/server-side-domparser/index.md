@@ -3,7 +3,9 @@
 📅 _Published: 2024-12-18_
 
 ## TL;DR
+
 To use the "real" (native) DOMParser APIs, go for a headless browser:
+
 ```js
 import puppeteer from 'puppeteer';
 
@@ -90,10 +92,14 @@ Puppeteer does let the two contexts - headless Chrome and the Node.js - communic
 2. Through **parameters** passed to the function being evaluated. See example below.
 
 ```js
-const result = await page.evaluate((a, b) => {
-  // a = 1, b = 2
-  return a + b;
-}, 1, 2);
+const result = await page.evaluate(
+  (a, b) => {
+    // a = 1, b = 2
+    return a + b;
+  },
+  1,
+  2
+);
 // result = 3
 ```
 
@@ -117,7 +123,7 @@ Actually we can already fully use DOMParser now, as we can put all the code in t
 const rssFeedData = await page.evaluate(async url => {
   const resp = await fetch(url);
   const source = await resp.text();
-  const doc = (new DOMParser()).parseFromString(source, 'text/xml');
+  const doc = new DOMParser().parseFromString(source, 'text/xml');
   const titleNode = doc.querySelector('channel > title');
   const itemNodeList = doc.querySelectorAll('channel > item');
   return {
